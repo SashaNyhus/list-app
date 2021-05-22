@@ -1,3 +1,16 @@
+body {
+  box-sizing: border-box;
+  margin: -20px 0;
+  overflow: hidden;
+}
+.main-box {
+  height: 100vh;
+  background-image: url("revan.jpg");
+  background-repeat: no-repeat;
+  background-color: black;
+  background-position: center right;
+}
+
 .completed-task {
   text-decoration: line-through;
 }
