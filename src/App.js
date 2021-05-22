@@ -1,25 +1,36 @@
-import logo from './logo.svg';
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import {startingList} from './modules/starting-list.js';
 import './App.css';
+import { TaskButton } from './modules/task-button.js';
 
 function App() {
+  const [taskArray, setList] = useState(startingList);
+
+  function TaskButton(props){
+    return(
+        <h2 
+            className={props.taskInfo.checked ? "completed-task": "todo-task"}
+            onClick={() => {
+                console.log("test")
+                let newTaskArray = [...taskArray]
+                newTaskArray[props.taskIndex]['checked'] = !(taskArray[props.taskIndex]['checked']);
+                setList(newTaskArray);
+            }}
+            >
+            {props.taskInfo.taskName}
+        </h2>
+    )
+}
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <TaskButton taskInfo={taskArray[2]} taskIndex={2} setList={setList}/>
     </div>
   );
 }
+
+
+
 
 export default App;
