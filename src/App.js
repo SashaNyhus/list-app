@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import {startingList} from './modules/starting-list.js';
 import './App.css';
+import { footerData } from './modules/footer-data.js';
 
 
 function App() {
@@ -24,18 +25,24 @@ function App() {
 
   const TaskButton = (props) => {
     return(
-        <h2 
-            className={props.taskInfo.checked ? "completed-task": "todo-task"}
-            onClick={() => checkTask(props.taskIndex)}
-            >
+        <div className="task-button" onClick={() => checkTask(props.taskIndex)}>
+          <div className={props.taskInfo.checked ? "checked-box": "unchecked-box"} />
+          <h2 className={props.taskInfo.checked ? "completed-task": "todo-task"}>
             {props.taskInfo.taskName}
-        </h2>
+          </h2>
+        </div>
     )
+}
+
+const Footer = (props) => {
+  return <footer>
+    <a href={props.linkData.linkURL}>{props.linkData.linkText}</a>
+  </footer>
 }
 
   return <div className="main-box">
     <TaskList taskArray={taskArray} />
-      {/* <TaskButton taskInfo={taskArray[2]} taskIndex={2} setList={setList}/> */}
+    <Footer linkData={footerData[0]} />
     </div>;
 }
 
