@@ -1,24 +1,24 @@
 export const startingList = [
     {
-        "taskName": "Tatooine",
+        "taskName": "Travel to Tatooine",
         "TaskType": "planet",
         "checked": false,
         "show": true
     },
     {
-        "taskName": "Kashyyyk",
+        "taskName": "Travel to Kashyyyk",
         "TaskType": "planet",
         "checked": false,
         "show": true
     },
     {
-        "taskName": "Manaan",
+        "taskName": "Travel to Manaan",
         "TaskType": "planet",
         "checked": false,
         "show": true
     },
     {
-        "taskName": "Korriban",
+        "taskName": "Travel to Korriban",
         "TaskType": "planet",
         "checked": false,
         "show": true

@@ -104,9 +104,33 @@ footer > a {
 
 .modal {
   position: absolute;
-  height: 500px;
-  width: 500px;
+  min-height: 200px;
+  width: 300px;
+  letter-spacing: ;
+  left: 0;
+  top: 50px;
   background-color: black;
-  box-shadow: 2px 2px 20px rgb(244, 130, 225);
+  /* box-shadow: 2px 2px 20px rgb(244, 130, 225); */
   border-radius: 5px;
+  border: 2px solid white;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.modal-content > button {
+  border-radius: 0;
+  border: none;
+  margin: 5px;
+  background-color: white;
+  color: black;
+  font-size: 10px;
+  font-weight: bold;
 }
