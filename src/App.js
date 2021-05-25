@@ -114,7 +114,25 @@ function App() {
           <button onClick={closeModal}>Cancel</button>
         </div>
       )}
+      {props.modalData.delete && (
+        <div className="modal-content">
+          <h3>Task Name:</h3>
+          <TaskDropDown taskArray={taskArray} />
+        </div>
+      )}
     </div>
+  }
+
+  const TaskDropDown = (props) => {
+    let tasksData = props.taskArray;
+    console.log(props.taskArray)
+    let optionsArray = tasksData.map(taskObj => {
+      console.log(taskObj);
+      return <option value={taskObj.taskName}>{taskObj.taskName}</option>
+    })
+    return <select id="task-to-delete">
+      {optionsArray}
+    </select>
   }
 
   return <div className="main-box">
