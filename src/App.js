@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import {startingList} from './modules/starting-list.js';
 import './App.css';
 import { footerData } from './modules/footer-data.js';
+import { modalData } from './modules/modal-data.js';
 
 
 function App() {
@@ -15,7 +16,12 @@ function App() {
     setList(newTaskArray);
   }
 
-  const openModal = (modalPurpose) => {}
+  const openModal = (modalPurpose) => {
+    if(modalPurpose === 'sort'){
+      // modalData
+    }
+    setModalOpen(!(modalOpen))
+  }
 
   const Header = (props) => {
     return <header>
@@ -45,17 +51,24 @@ function App() {
     )
 }
 
-const Footer = (props) => {
+  const Footer = (props) => {
   let footerLinkArray = props.linkData;
   return <footer>
     {footerLinkArray.map(linkObj => (<a href={linkObj.linkURL}>{linkObj.linkText}</a>))}
   </footer>
 }
 
+  const Modal = (props) => {
+    return <div className="modal"></div>
+  }
+
   return <div className="main-box">
     <Header />
     <TaskList taskArray={taskArray} />
     <Footer linkData={footerData} />
+    {modalOpen && (
+      <Modal modalContent={modalData}/>
+    )}
     </div>;
 }
 

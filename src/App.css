@@ -101,3 +101,12 @@ footer > a {
 .hidden-task {
   display: none;
 }
+
+.modal {
+  position: absolute;
+  height: 500px;
+  width: 500px;
+  background-color: black;
+  box-shadow: 2px 2px 20px rgb(244, 130, 225);
+  border-radius: 5px;
+}
