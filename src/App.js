@@ -103,7 +103,7 @@ function App() {
       {props.modalData.add && (
         <div className="modal-content">
           <h3>Task Name:</h3>
-          <input id="name" onChange={event => setNewTaskName(event.target.value)}/>
+          <input id="name" value={newTaskName} onChange={event => setNewTaskName(event.target.value)}/>
           <h3>Task Type:</h3>
           <select id="type" onChange={event => setNewTaskType(event.target.value)}>
             <option value="planet">Planet to Visit </option>
