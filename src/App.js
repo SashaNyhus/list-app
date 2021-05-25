@@ -7,11 +7,22 @@ import { footerData } from './modules/footer-data.js';
 
 function App() {
   const [taskArray, setList] = useState(startingList);
+  const [modalOpen, setModalOpen] = useState(false);
 
   const checkTask = (indexOfTask) => {
     let newTaskArray = [...taskArray];
     newTaskArray[indexOfTask]['checked'] = !(taskArray[indexOfTask]['checked']);
     setList(newTaskArray);
+  }
+
+  const openModal = (modalPurpose) => {}
+
+  const Header = (props) => {
+    return <header>
+      <button onClick={() => openModal("sort")}>Sort List</button>
+      <button onClick={() => openModal("add")}>Add to List</button>
+      <button onClick={() => openModal("remove")}>Remove from List</button>
+    </header>
   }
 
   const TaskList = (props) => {
@@ -25,7 +36,7 @@ function App() {
 
   const TaskButton = (props) => {
     return(
-        <div className="task-button" onClick={() => checkTask(props.taskIndex)}>
+        <div className={`task-button ${props.taskInfo.show ? "": "hidden-task"}`} onClick={() => checkTask(props.taskIndex)}>
           <div className={props.taskInfo.checked ? "checked-box": "unchecked-box"} />
           <h2 className={props.taskInfo.checked ? "completed-task": "todo-task"}>
             {props.taskInfo.taskName}
@@ -35,14 +46,16 @@ function App() {
 }
 
 const Footer = (props) => {
+  let footerLinkArray = props.linkData;
   return <footer>
-    <a href={props.linkData.linkURL}>{props.linkData.linkText}</a>
+    {footerLinkArray.map(linkObj => (<a href={linkObj.linkURL}>{linkObj.linkText}</a>))}
   </footer>
 }
 
   return <div className="main-box">
+    <Header />
     <TaskList taskArray={taskArray} />
-    <Footer linkData={footerData[0]} />
+    <Footer linkData={footerData} />
     </div>;
 }
 
